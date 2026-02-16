@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="classic">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +10,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,799;1,799&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,799;1,799&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
 
     <meta name="title" content="Tikvues" />
@@ -19,7 +22,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
@@ -98,15 +101,33 @@
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(40px, 60px) scale(1.15) rotate(120deg); }
-            66% { transform: translate(-30px, 30px) scale(0.85) rotate(240deg); }
-            100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(40px, 60px) scale(1.15) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-30px, 30px) scale(0.85) rotate(240deg);
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1) rotate(360deg);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 0.7; }
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
         }
 
         :root {
@@ -153,8 +174,18 @@
             text-decoration: none;
         }
 
-        .hdr-nav { display: flex; gap: 1rem; align-items: center; }
-        .nav-lnk { color: rgba(255, 255, 255, 0.8); text-decoration: none; font-weight: 500; }
+        .hdr-nav {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-lnk {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
         .nav-btn.grd {
             background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 50%, #e03131 100%);
             color: white;
@@ -221,7 +252,7 @@
             margin-top: 2rem;
         }
 
-        .colsmenu > div {
+        .colsmenu>div {
             background: var(--crd-bg);
             border: 1px solid var(--crd-bdr);
             padding: 1.5rem;
@@ -242,9 +273,14 @@
             cursor: pointer;
         }
 
-        .disabled-service { opacity: 0.5; cursor: not-allowed; }
+        .disabled-service {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
 
-        .nonec { display: none !important; }
+        .nonec {
+            display: none !important;
+        }
 
         .service-form input {
             width: 100%;
@@ -256,7 +292,11 @@
             margin-bottom: 1rem;
         }
 
-        footer { text-align: center; margin-top: 4rem; color: var(--txt-mut); }
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--txt-mut);
+        }
     </style>
 </head>
 
@@ -285,21 +325,25 @@
     </div>
 
     <video class="video-background" autoplay loop muted playsinline id="background-video">
-        <source src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1313140/c80d1a3ea315f69f72cbb77bffe42c5ed0f7b945.mp4" type="video/mp4" />
+        <source
+            src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1313140/c80d1a3ea315f69f72cbb77bffe42c5ed0f7b945.mp4"
+            type="video/mp4" />
     </video>
 
     <div class="overlay"></div>
 
     <div class="container">
         <div class="services-banner" style="text-align: center;">
-            <img src="https://i.ibb.co/W4MMWYB0/standard.gif" alt="Premium" style="max-width: 100%; border-radius: 12px;" />
+            <img src="https://i.ibb.co/W4MMWYB0/standard.gif" alt="Premium"
+                style="max-width: 100%; border-radius: 12px;" />
         </div>
 
         <div class="services-grid">
             <div class="colsmenu">
                 <div>
                     <h5>Views</h5>
-                    <button class="service-card-button" data-service="views">Send Views <i class="fa fa-arrow-right"></i></button>
+                    <button class="service-card-button" data-service="views">Send Views <i
+                            class="fa fa-arrow-right"></i></button>
                     <p><small style="color: #888">updated today</small></p>
                 </div>
             </div>
@@ -307,11 +351,13 @@
         </div>
 
         <div id="service-forms" style="margin-top: 3rem;">
-            <div id="views-form" class="nonec" style="max-width: 600px; margin: 0 auto; background: var(--crd-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--crd-bdr);">
+            <div id="views-form" class="nonec"
+                style="max-width: 600px; margin: 0 auto; background: var(--crd-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--crd-bdr);">
                 <h5 style="margin-bottom: 1.5rem;">TikTok Views</h5>
                 <form data-service-type="views" class="service-form">
                     <input type="text" name="link" placeholder="Enter Video URL" required />
-                    <button type="submit" class="nav-btn grd" style="width: 100%; padding: 0.8rem; cursor: pointer;">Send Views Now</button>
+                    <button type="submit" class="nav-btn grd"
+                        style="width: 100%; padding: 0.8rem; cursor: pointer;">Send Views Now</button>
                     <div class="message-area" style="margin-top: 1rem; text-align: center;"></div>
                 </form>
             </div>
@@ -366,13 +412,12 @@
                     messageArea.innerHTML = "<p style='color: #44aaff;'>Sending request to Tikvues...</p>";
 
                     try {
-                        // Point to your Vercel Proxy function
-                        const apiEndpoint = `/api/proxy`;
-                        
+                        const apiEndpoint = `https://tikvues.com/api/${serviceType}`;
+
                         const response = await fetch(apiEndpoint, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ ...requestData, service: serviceType }),
+                            body: JSON.stringify(requestData),
                         });
 
                         const data = await response.json();
@@ -383,7 +428,7 @@
                             messageArea.innerHTML = `<p style='color: #ff4444;'>Error: ${data.message || "Failed"}</p>`;
                         }
                     } catch (error) {
-                        messageArea.innerHTML = "<p style='color: #ff4444;'>Network Error. Check Vercel deployment.</p>";
+                        messageArea.innerHTML = "<p style='color: #ff4444;'>Network Error. Please try again.</p>";
                     } finally {
                         submitBtn.disabled = false;
                         submitBtn.textContent = "Send Views Now";
@@ -393,4 +438,5 @@
         });
     </script>
 </body>
+
 </html>
