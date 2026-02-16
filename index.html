@@ -1,0 +1,3282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="classic">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tikvues</title>
+
+    <link
+      rel="shortcut icon"
+      href="https://i.ibb.co/Pv5bS7Zr/14875334.png"
+      type="image/x-icon"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,799;1,799&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <meta name="title" content="Tikvues" />
+    <meta
+      name="description"
+      content="Tikvues, boost your views, likes, followers and fans for free!"
+    />
+
+    <meta name="theme-color" content="#B32624" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+              @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+              @font-face {
+                  font-family: 'Bolt Sans';
+                  src: url('https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff2') format('woff2'),
+                       url('https://db.onlinewebfonts.com/t/1dc8ecd8056a5ea7aa7de1db42b5b639.woff') format('woff');
+                  font-weight: normal;
+                  font-style: normal;
+                  font-display: swap;
+              }
+
+              @font-face {
+                  font-family: 'Bolt Sans';
+                  src: url('https://db.onlinewebfonts.com/t/2e5aa5d2ccb562a1a7fad9a97a25f309.woff2') format('woff2'),
+                       url('https://db.onlinewebfonts.com/t/2e5aa5d2ccb562a1a7fad9a97a25f309.woff') format('woff');
+                  font-weight: bold;
+                  font-style: normal;
+                  font-display: swap;
+              }
+
+              * {
+                  margin: 0;
+                  padding: 0;
+                  box-sizing: border-box;
+              }
+
+              body {
+                  /* Prefer Google-hosted Montserrat for consistency across devices */
+                  font-family: 'Montserrat', 'Bolt Sans', 'Open Sans', sans-serif;
+                  color: #ffffff;
+                  min-height: 100vh;
+                  width: 100%;
+                  position: relative;
+                  overflow: hidden;
+                  background-color: #0d1117;
+                  background-image:
+                      radial-gradient(circle at 10% 20%, rgba(255, 107, 107, 0.18) 0%, transparent 20%),
+                      radial-gradient(circle at 90% 80%, rgba(201, 42, 42, 0.12) 0%, transparent 20%);
+                  -webkit-font-smoothing: antialiased;
+                  -moz-osx-font-smoothing: grayscale;
+              }
+
+              /* Blobs animés en arrière-plan - Enhanced */
+              .bg-blobs {
+                  position: fixed;
+                  width: 100%;
+                  height: 100%;
+                  top: 0;
+                  left: 0;
+                  z-index: 0;
+                  filter: blur(100px);
+                  pointer-events: none;
+                  opacity: 0.8;
+              }
+
+              .blob {
+                  position: absolute;
+                  border-radius: 50%;
+                  opacity: 0.5;
+                  animation: float 20s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
+                  background: linear-gradient(135deg, var(--blob-color-1), var(--blob-color-2));
+                  box-shadow: 0 0 100px var(--blob-color-1);
+              }
+
+              .blob-1 {
+                  --blob-color-1: #ff6b6b;
+                  --blob-color-2: #fa5252;
+                  width: 450px;
+                  height: 450px;
+                  top: -100px;
+                  left: -100px;
+                  animation: float 25s infinite alternate cubic-bezier(0.45, 0, 0.55, 1), pulse 8s infinite;
+              }
+
+              .blob-2 {
+                  --blob-color-1: #c92a2a;
+                  --blob-color-2: #e03131;
+                  width: 350px;
+                  height: 350px;
+                  bottom: -50px;
+                  right: -50px;
+                  animation-delay: -5s;
+                  animation: float 22s infinite alternate cubic-bezier(0.45, 0, 0.55, 1), pulse 10s infinite;
+              }
+
+              .blob-3 {
+                  --blob-color-1: #ff8787;
+                  --blob-color-2: #ff6b6b;
+                  width: 300px;
+                  height: 300px;
+                  top: 40%;
+                  left: 60%;
+                  animation-delay: -10s;
+                  animation: float 28s infinite alternate cubic-bezier(0.45, 0, 0.55, 1), pulse 12s infinite;
+              }
+
+              @keyframes float {
+                  0% {
+                      transform: translate(0, 0) scale(1) rotate(0deg);
+                  }
+                  33% {
+                      transform: translate(40px, 60px) scale(1.15) rotate(120deg);
+                  }
+                  66% {
+                      transform: translate(-30px, 30px) scale(0.85) rotate(240deg);
+                  }
+                  100% {
+                      transform: translate(0, 0) scale(1) rotate(360deg);
+                  }
+              }
+
+              @keyframes pulse {
+                  0%, 100% {
+                      opacity: 0.5;
+                  }
+                  50% {
+                      opacity: 0.7;
+                  }
+              }
+
+              :root {
+          --bg: #0d1117;
+          --fg: #e6edf3;
+          --crd-bg: rgba(22, 27, 34, 0.7);
+          --crd-bdr: rgba(48, 54, 61, 0.5);
+          --glass-border: rgba(255, 255, 255, 0.1);
+          --blur: 12px;
+          --crd-hvr: rgba(239, 68, 68, 0.2);
+          --prim: #ef4444;
+          --prim-hvr: #dc2626;
+          --prim-grd: linear-gradient(to right, #ef4444, #dc2626);
+          --prim-glw: rgba(239, 68, 68, 0.5);
+          --sec: rgba(0, 0, 0, 0.3);
+          --sec-bdr: rgba(255, 255, 255, 0.1);
+          --sec-hvr: rgba(239, 68, 68, 0.1);
+          --sec-hvr-bdr: rgba(239, 68, 68, 0.5);
+          --txt-mut: rgba(156, 163, 175, 1);
+          --rad: 0.5rem;
+          --hdr-h: 4rem;
+          --shd: 0 10px 25px rgba(0, 0, 0, 0.2);
+          --shd-hvr: 0 15px 30px rgba(0, 0, 0, 0.3);
+          --prim-rgb: 239, 68, 68;
+      }
+
+      .cntr {
+          width: 100%;
+          max-width: 1800px;
+          margin: 0 auto;
+          padding: 0 2rem;
+      }
+
+      a {
+          color: inherit;
+          text-decoration: none;
+      }
+
+      button {
+          cursor: pointer;
+          font-family: inherit;
+      }
+
+      .hidden {
+          display: none !important;
+      }
+
+      .hdr {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 100;
+          background: linear-gradient(180deg, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.85) 100%);
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+          box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4),
+                      0 1px 0 rgba(255, 107, 107, 0.15) inset,
+                      0 8px 32px rgba(255, 107, 107, 0.05);
+          height: var(--hdr-h);
+          transition: all 0.3s ease;
+      }
+
+      .hdr.scrolled {
+          background-color: rgba(0, 0, 0, 0.8);
+          backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .hdr-cntr {
+          display: flex;
+          height: var(--hdr-h);
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 1rem;
+          position: relative;
+      }
+
+      .hdr-lft {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          flex-shrink: 0;
+          z-index: 10;
+      }
+
+      .hdr-nav {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          flex-shrink: 0;
+          z-index: 10;
+          position: relative;
+      }
+
+      .hdr-nav::after {
+          content: "";
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(to right, transparent, var(--prim), transparent);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .hdr-nav:hover::after {
+          opacity: 1;
+      }
+
+      .hdr-nav .nav-lnk,
+      .hdr-nav .nav-btn {
+          font-family: "Open Sans", sans-serif;
+          font-weight: 700;
+      }
+
+      .nav-btn {
+          font-size: 0.875rem;
+          font-weight: 500;
+          padding: 0.5rem 1rem;
+          border-radius: var(--rad);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          white-space: nowrap;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .nav-btn::before {
+          content: "";
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          border-radius: var(--rad);
+          background: linear-gradient(45deg, var(--prim), var(--prim-hvr), transparent, transparent);
+          z-index: -1;
+          opacity: 0;
+          transform: rotate(0deg);
+          transition: opacity 0.4s ease, transform 0.6s ease;
+      }
+
+      .nav-btn:hover::before {
+          opacity: 1;
+          transform: rotate(180deg);
+      }
+
+      .nav-btn:hover {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+      }
+
+      .nav-lnk {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.8);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          white-space: nowrap;
+          position: relative;
+          padding: 0.5rem 0.75rem;
+          border-radius: 6px;
+      }
+
+      .nav-lnk::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+          transform: translateX(-50%);
+          transition: width 0.3s ease;
+      }
+
+      .nav-lnk:hover {
+          color: #ff6b6b;
+          background: rgba(255, 107, 107, 0.1);
+          transform: translateY(-2px);
+      }
+
+      .nav-lnk:hover::before {
+          width: 80%;
+      }
+
+      .mob-menu-tgl {
+          display: none;
+          background: none;
+          border: none;
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 1.5rem;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          padding: 0.5rem;
+          border-radius: 6px;
+          position: relative;
+      }
+
+      .mob-menu-tgl::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: rgba(255, 107, 107, 0.1);
+          border-radius: 6px;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .mob-menu-tgl:hover {
+          color: var(--prim);
+          transform: scale(1.1);
+      }
+
+      .mob-menu-tgl:hover::before {
+          opacity: 1;
+      }
+
+      .mob-menu-tgl:active {
+          transform: scale(0.95);
+      }
+
+      .logo-lnk {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 1.6rem;
+          font-weight: 700;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+      }
+
+      .logo-lnk::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #ff6b6b, #fa5252, #ff8787);
+          transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 0 10px rgba(255, 107, 107, 0.6);
+      }
+
+      .logo-lnk:hover::after {
+          width: 100%;
+      }
+
+      .logo-lnk:hover {
+          transform: translateY(-2px);
+          filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.5));
+      }
+
+      .logo-img {
+          height: 40px;
+          width: auto;
+          display: block;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          filter: drop-shadow(0 2px 8px rgba(255, 107, 107, 0.3));
+      }
+
+      .logo-img:hover {
+          transform: rotate(5deg) scale(1.1);
+          filter: drop-shadow(0 4px 16px rgba(255, 107, 107, 0.6))
+                  drop-shadow(0 0 20px rgba(255, 107, 107, 0.4));
+      }
+
+      .nav-btn.grd {
+          background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 50%, #e03131 100%);
+          border: none;
+          color: white;
+          transform: translateY(0);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3), 0 2px 6px rgba(239, 68, 68, 0.2),
+                      0 0 20px rgba(239, 68, 68, 0.1);
+          position: relative;
+          overflow: hidden;
+          font-weight: 600;
+          background-size: 200% 200%;
+          animation: gradientShift 3s ease infinite;
+      }
+
+      @keyframes gradientShift {
+          0%, 100% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+      }
+
+      .nav-btn.grd::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+          opacity: 0;
+          transition: opacity 0.4s;
+      }
+
+      .nav-btn.grd::after {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transform: rotate(45deg);
+          transition: 0.6s;
+          left: -100%;
+      }
+
+      .nav-btn.grd:hover {
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 12px 24px rgba(239, 68, 68, 0.4), 0 6px 12px rgba(239, 68, 68, 0.3),
+                      0 0 40px rgba(239, 68, 68, 0.2), 0 0 60px rgba(239, 68, 68, 0.1);
+          filter: brightness(1.15) saturate(1.2);
+      }
+
+      .nav-btn.grd:hover::before {
+          opacity: 1;
+      }
+
+      .nav-btn.grd:hover::after {
+          left: 100%;
+      }
+
+      .nav-btn.grd:active {
+          transform: translateY(-1px) scale(1.02);
+          box-shadow: 0 6px 12px rgba(239, 68, 68, 0.3);
+      }
+
+      .nav-btn.grd:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          transform: none;
+          filter: brightness(0.7);
+      }
+
+      .nav-btn.grd:disabled:hover {
+          transform: none;
+          box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.1), 0 2px 4px -1px rgba(239, 68, 68, 0.05);
+      }
+
+      .nav-btn i, button i {
+          transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          display: inline-block;
+      }
+
+      .nav-btn:hover i, button:hover i {
+          transform: translateY(-2px);
+      }
+
+      /* Glass Effect pour les cards - Enhanced */
+      .glass, [style*="background:var(--crd-bg)"] {
+          background: rgba(22, 27, 34, 0.75) !important;
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          border: 1px solid rgba(255, 255, 255, 0.18) !important;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                      0 0 0 1px rgba(255, 107, 107, 0.15) inset,
+                      0 4px 12px rgba(255, 107, 107, 0.05) !important;
+          border-radius: 16px !important;
+          position: relative;
+          overflow: hidden;
+      }
+
+      .glass::before, [style*="background:var(--crd-bg)"]::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+          transition: left 0.5s;
+          pointer-events: none;
+      }
+
+      .glass:hover::before, [style*="background:var(--crd-bg)"]:hover::before {
+          left: 100%;
+      }
+
+      .colsmenu > div {
+          background: rgba(22, 27, 34, 0.75) !important;
+          backdrop-filter: blur(20px) saturate(180%);
+          -webkit-backdrop-filter: blur(20px) saturate(180%);
+          border: 1px solid rgba(255, 255, 255, 0.18) !important;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                      0 0 0 1px rgba(255, 107, 107, 0.15) inset,
+                      0 4px 12px rgba(255, 107, 107, 0.05) !important;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+      }
+
+      .colsmenu > div::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, #ff6b6b, #fa5252, transparent);
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+      }
+
+      .colsmenu > div::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255, 107, 107, 0.15), transparent);
+          transform: translate(-50%, -50%);
+          transition: width 0.6s ease, height 0.6s ease;
+          pointer-events: none;
+      }
+
+      .colsmenu > div:hover {
+          border-color: rgba(255, 107, 107, 0.5) !important;
+          box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5),
+                      0 0 0 1px rgba(255, 107, 107, 0.4) inset,
+                      0 0 30px rgba(255, 107, 107, 0.25),
+                      0 8px 16px rgba(255, 107, 107, 0.15) !important;
+          transform: translateY(-4px) scale(1.02);
+      }
+
+      .colsmenu > div:hover::before {
+          opacity: 1;
+      }
+
+      .colsmenu > div:hover::after {
+          width: 300px;
+          height: 300px;
+      }
+
+      .colsmenu h5 {
+          color: #e6edf3 !important;
+          font-weight: 600 !important;
+          letter-spacing: 0.3px;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Input styles ultra-modernisés */
+      input[type="search"],
+      input[type="text"],
+      input[type="number"],
+      select,
+      textarea {
+          background: rgba(0, 0, 0, 0.3) !important;
+          border: 1px solid rgba(48, 54, 61, 0.6) !important;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          color: #e6edf3 !important;
+          font-weight: 500;
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+      }
+
+      input[type="search"]:hover,
+      input[type="text"]:hover,
+      input[type="number"]:hover,
+      select:hover,
+      textarea:hover {
+          border-color: rgba(255, 107, 107, 0.3) !important;
+          background: rgba(0, 0, 0, 0.4) !important;
+      }
+
+      input[type="search"]:focus,
+      input[type="text"]:focus,
+      input[type="number"]:focus,
+      select:focus,
+      textarea:focus {
+          outline: none;
+          border-color: #ff6b6b !important;
+          background: rgba(0, 0, 0, 0.5) !important;
+          box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2),
+                      0 0 20px rgba(255, 107, 107, 0.15),
+                      0 4px 12px rgba(255, 107, 107, 0.1) !important;
+          transform: translateY(-1px);
+      }
+
+      /* Effet glow sur placeholder */
+      input::placeholder,
+      textarea::placeholder {
+          color: #8b949e;
+          opacity: 0.7;
+      }
+
+      /* Animation d'entrée pour les cards */
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+              transform: translateY(5px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      .colsmenu {
+          animation: fadeIn 0.3s ease;
+      }
+
+      /* Effet glow ultra-amélioré sur les boutons de service */
+      .service-card-button {
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25),
+                      0 2px 6px rgba(255, 107, 107, 0.15);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(255, 107, 107, 0.05));
+          backdrop-filter: blur(10px);
+      }
+
+      .service-card-button::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+          transform: rotate(45deg);
+          transition: 0.7s;
+          left: -100%;
+      }
+
+      .service-card-button::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: radial-gradient(circle at center, rgba(255, 107, 107, 0.2), transparent);
+          opacity: 0;
+          transition: opacity 0.4s ease;
+      }
+
+      .service-card-button:hover {
+          box-shadow: 0 12px 32px rgba(239, 68, 68, 0.5),
+                      0 6px 16px rgba(255, 107, 107, 0.3),
+                      0 0 40px rgba(255, 107, 107, 0.3),
+                      0 0 0 1px rgba(255, 107, 107, 0.4) inset;
+          transform: translateY(-4px) scale(1.03);
+          background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(255, 107, 107, 0.1));
+      }
+
+      .service-card-button:hover::before {
+          left: 100%;
+      }
+
+      .service-card-button:hover::after {
+          opacity: 1;
+      }
+
+      .service-card-button:active {
+          transform: translateY(-2px) scale(1.01);
+      }
+
+      /* Boutons de formulaire compact et propre */
+      button.disableButton.nav-btn.grd {
+          min-width: auto;
+          min-height: auto;
+          padding: 0.5rem 0.9rem !important;
+          font-size: 0.9rem !important;
+          line-height: 1 !important;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.4rem;
+          background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 50%, #e03131 100%) !important;
+          background-size: 200% 200%;
+          animation: gradientShift 3s ease infinite;
+          box-shadow: 0 2px 8px rgba(255, 107, 107, 0.35),
+                      0 4px 16px rgba(255, 107, 107, 0.2),
+                      0 0 20px rgba(255, 107, 107, 0.1);
+          border-radius: 8px !important;
+          position: relative;
+          overflow: hidden !important;
+          color: white !important;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      button.disableButton.nav-btn.grd::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
+          opacity: 0;
+          transition: opacity 0.3s;
+      }
+
+      button.disableButton.nav-btn.grd i {
+          font-size: 0.9rem !important;
+          color: white !important;
+          display: inline-block !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      button.disableButton.nav-btn.grd:hover {
+          background: linear-gradient(135deg, #fa5252 0%, #ff6b6b 50%, #ff8787 100%) !important;
+          box-shadow: 0 4px 16px rgba(255, 107, 107, 0.5),
+                      0 6px 24px rgba(255, 107, 107, 0.3),
+                      0 0 40px rgba(255, 107, 107, 0.2);
+          transform: translateY(-3px) scale(1.05);
+      }
+
+      button.disableButton.nav-btn.grd:hover::before {
+          opacity: 1;
+      }
+
+      button.disableButton.nav-btn.grd:hover i {
+          transform: translateX(3px);
+      }
+
+      button.disableButton.nav-btn.grd:active {
+          transform: translateY(-1px) scale(1.02);
+          box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
+      }
+
+      /* Headers et titres avec glow */
+      .page-header h1,
+      .services-section h2,
+      .colsmenu h5 {
+          text-shadow: 0 0 30px rgba(255, 107, 107, 0.4),
+                       0 0 15px rgba(255, 107, 107, 0.3),
+                       0 2px 8px rgba(0, 0, 0, 0.5),
+                       0 4px 16px rgba(255, 107, 107, 0.2);
+          background: linear-gradient(135deg, #ffffff, #f0f0f0);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          position: relative;
+      }
+
+      .colsmenu h5 {
+          background: linear-gradient(135deg, #ffffff, #e6edf3);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+      }
+
+      /* Message area avec styles améliorés */
+      .message-area {
+          border-radius: 10px;
+          padding: 0.85rem;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          transition: all 0.3s ease;
+      }
+
+      .message-area p {
+          margin: 0;
+          font-weight: 600;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+          letter-spacing: 0.3px;
+          animation: messageSlideIn 0.4s ease;
+      }
+
+      @keyframes messageSlideIn {
+          from {
+              opacity: 0;
+              transform: translateY(-10px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Scrollbar personnalisé */
+      .container::-webkit-scrollbar,
+      *::-webkit-scrollbar {
+          width: 12px;
+          height: 12px;
+      }
+
+      .container::-webkit-scrollbar-track,
+      *::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.3);
+          border-radius: 6px;
+          border: 2px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .container::-webkit-scrollbar-thumb,
+      *::-webkit-scrollbar-thumb {
+          background: linear-gradient(180deg, rgba(255, 107, 107, 0.4), rgba(255, 107, 107, 0.6));
+          border-radius: 6px;
+          border: 2px solid rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+          transition: all 0.3s ease;
+      }
+
+      .container::-webkit-scrollbar-thumb:hover,
+      *::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(180deg, rgba(255, 107, 107, 0.6), rgba(255, 107, 107, 0.8));
+          box-shadow: 0 0 15px rgba(255, 107, 107, 0.5),
+                      0 0 25px rgba(255, 107, 107, 0.3);
+      }
+
+      .nav-btn.grd i {
+          margin-right: 0.5rem;
+          font-size: 0.75rem;
+      }
+
+          color: var(--prim);
+      }
+      .mob-menu {
+          position: fixed;
+          top: var(--hdr-h);
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 99;
+          overflow-y: auto;
+          border-top: 1px solid rgba(255, 107, 107, 0.2);
+          background: linear-gradient(180deg, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.95) 100%);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+          box-shadow: inset 0 1px 0 rgba(255, 107, 107, 0.1),
+                      0 8px 32px rgba(0, 0, 0, 0.5);
+      }
+
+      .mob-menu.hidden {
+          transform: translateY(-100%);
+          opacity: 0;
+          pointer-events: none;
+      }
+
+      .mob-menu:not(.hidden) {
+          transform: translateY(0);
+          opacity: 1;
+      }
+
+      .mob-menu-cntr {
+          padding: 1rem 2rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+      }
+
+      .mob-nav {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+      }
+
+      .mob-nav-lnk {
+          padding: 1rem 1.25rem;
+          font-size: 1.05rem;
+          font-weight: 500;
+          border-radius: var(--rad);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+          border: 1px solid transparent;
+      }
+
+      .mob-nav-lnk::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 3px;
+          height: 0;
+          background: linear-gradient(180deg, #ff6b6b, #fa5252);
+          transition: height 0.3s ease;
+      }
+
+      .mob-nav-lnk:hover {
+          background: rgba(239, 68, 68, 0.15);
+          color: var(--prim);
+          border-color: rgba(255, 107, 107, 0.2);
+          transform: translateX(8px);
+          box-shadow: 0 4px 12px rgba(255, 107, 107, 0.15);
+      }
+
+      .mob-nav-lnk:hover::before {
+          height: 60%;
+      }
+
+      .mob-nav-lnk.cntb {
+          background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 50%, #e03131 100%);
+          background-size: 200% 200%;
+          animation: gradientShift 3s ease infinite;
+          color: white;
+          text-align: center;
+          transition: all 0.3s ease;
+          margin-top: 0.5rem;
+          box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .mob-nav-lnk.cntb:hover {
+          filter: brightness(1.15);
+          transform: translateX(0) translateY(-2px) scale(1.02);
+          box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+      }
+
+              .loading-screen {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg, #000001 0%, #0a0a0a 50%, #000001 100%);
+                  background-size: 200% 200%;
+                  animation: gradientBg 10s ease infinite;
+                  z-index: 1000;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  transition: opacity 0.8s ease, visibility 0.8s ease;
+              }
+
+              @keyframes gradientBg {
+                  0%, 100% { background-position: 0% 50%; }
+                  50% { background-position: 100% 50%; }
+              }
+
+              .loading-screen.hidden {
+                  opacity: 0;
+                  visibility: hidden;
+              }
+
+              .loading-logo {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 2rem;
+                  transform: scale(1.5);
+                  animation: loadingPulse 2s ease-in-out infinite;
+              }
+
+              @keyframes loadingPulse {
+                  0%, 100% {
+                      transform: scale(1.5);
+                      filter: drop-shadow(0 0 10px rgba(255, 107, 107, 0.3));
+                  }
+                  50% {
+                      transform: scale(1.6);
+                      filter: drop-shadow(0 0 25px rgba(255, 107, 107, 0.6));
+                  }
+              }
+
+              .loading-logo-img {
+                  height: 3rem;
+                  width: auto;
+                  filter: drop-shadow(0 4px 12px rgba(255, 107, 107, 0.4));
+              }
+
+              .loading-bar-container {
+                  width: 220px;
+                  height: 5px;
+                  background: rgba(255, 255, 255, 0.08);
+                  border-radius: 3px;
+                  overflow: hidden;
+                  position: relative;
+                  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3),
+                             inset 0 1px 2px rgba(0, 0, 0, 0.5);
+                  border: 1px solid rgba(255, 107, 107, 0.1);
+              }
+
+              .loading-bar-container::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  height: 1px;
+                  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+              }
+
+              .loading-bar {
+                  position: absolute;
+                  height: 100%;
+                  width: 0%;
+                  background: linear-gradient(90deg, #ef4444, #fa5252, #ff6b6b, #fa5252, #ef4444);
+                  background-size: 200% 100%;
+                  animation: shimmer 2s linear infinite;
+                  border-radius: 2px;
+                  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5), 0 0 20px rgba(239, 68, 68, 0.3);
+              }
+
+              @keyframes shimmer {
+                  0% { background-position: -200% 0; }
+                  100% { background-position: 200% 0; }
+              }
+
+              .loading-text {
+                  margin-top: 1.2rem;
+                  font-size: 0.9rem;
+                  color: rgba(156, 163, 175, 1);
+                  font-weight: 500;
+                  letter-spacing: 0.5px;
+                  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                  animation: textFade 2s ease-in-out infinite;
+              }
+
+              @keyframes textFade {
+                  0%, 100% { opacity: 0.8; }
+                  50% { opacity: 1; }
+              }
+
+              @keyframes shake-index {
+                  0% { transform: translateX(0); }
+                  25% { transform: translateX(-1px); }
+                  50% { transform: translateX(1px); }
+                  75% { transform: translateX(-1px); }
+                  100% { transform: translateX(0); }
+              }
+
+              .shake-animation {
+                  display: inline-block;
+                  animation: shake-index 0.1s infinite;
+              }
+
+              @keyframes glowPulse {
+                  0%, 100% {
+                      box-shadow: 0 0 5px rgba(239, 68, 68, 0.3),
+                                 0 0 10px rgba(239, 68, 68, 0.2),
+                                 0 0 15px rgba(239, 68, 68, 0.1);
+                  }
+                  50% {
+                      box-shadow: 0 0 20px rgba(239, 68, 68, 0.8),
+                                 0 0 30px rgba(239, 68, 68, 0.6),
+                                 0 0 40px rgba(239, 68, 68, 0.4);
+                  }
+              }
+
+              .video-background {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 0;
+                  object-fit: cover;
+                  filter: blur(6px) brightness(0.8) saturate(1.4) contrast(1.1);
+                  animation: videoEnhance 15s ease-in-out infinite alternate;
+              }
+
+              @keyframes videoEnhance {
+                  0% {
+                      filter: blur(6px) brightness(0.8) saturate(1.4) contrast(1.1);
+                  }
+                  50% {
+                      filter: blur(7px) brightness(0.85) saturate(1.5) contrast(1.15);
+                  }
+                  100% {
+                      filter: blur(6px) brightness(0.8) saturate(1.4) contrast(1.1);
+                  }
+              }
+
+              .overlay {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(135deg,
+                      rgba(0, 0, 0, 0.6) 0%,
+                      rgba(20, 20, 20, 0.5) 25%,
+                      rgba(0, 0, 0, 0.5) 50%,
+                      rgba(10, 10, 10, 0.55) 75%,
+                      rgba(0, 0, 0, 0.6) 100%);
+                  z-index: 1;
+                  animation: overlayPulse 10s ease-in-out infinite;
+              }
+
+              @keyframes overlayPulse {
+                  0%, 100% { opacity: 1; }
+                  50% { opacity: 0.95; }
+              }
+
+              .container {
+                  max-width: 1200px;
+                  margin: 0 auto;
+                  padding: 6rem 1rem 2rem;
+                  position: relative;
+                  z-index: 10;
+                  height: calc(100vh - var(--hdr-h));
+                  margin-top: var(--hdr-h);
+                  overflow-y: auto;
+                  overflow-x: hidden;
+                  scrollbar-width: thin;
+                  scrollbar-color: rgba(255, 107, 107, 0.4) rgba(0, 0, 0, 0.3);
+                  -ms-overflow-style: auto;
+                  scroll-behavior: smooth;
+              }
+
+              .container::-webkit-scrollbar {
+                  display: block;
+              }
+
+              .page-header {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 3rem 0;
+                  text-align: center;
+                  position: relative;
+              }
+
+              .page-header::before {
+                  content: '';
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 400px;
+                  height: 400px;
+                  background: radial-gradient(circle, rgba(255, 107, 107, 0.1), transparent);
+                  pointer-events: none;
+                  animation: headerGlow 8s ease-in-out infinite;
+              }
+
+              @keyframes headerGlow {
+                  0%, 100% {
+                      opacity: 0.5;
+                      transform: translate(-50%, -50%) scale(1);
+                  }
+                  50% {
+                      opacity: 0.8;
+                      transform: translate(-50%, -50%) scale(1.2);
+                  }
+              }
+
+              .logo {
+                  margin-bottom: 1.5rem;
+                  position: relative;
+                  text-align: center;
+                  line-height: 1.2;
+                  z-index: 2;
+              }
+
+              .logo::after {
+                  content: '';
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 150%;
+                  height: 150%;
+                  background: radial-gradient(circle, rgba(255, 107, 107, 0.05), transparent);
+                  pointer-events: none;
+                  z-index: -1;
+              }
+
+              .main-logo-img {
+                  height: 6rem;
+                  width: auto;
+                  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4))
+                          drop-shadow(0 0 20px rgba(255, 107, 107, 0.3));
+                  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                  animation: logoFloat 6s ease-in-out infinite;
+              }
+
+              .main-logo-img:hover {
+                  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5))
+                          drop-shadow(0 0 40px rgba(255, 107, 107, 0.6))
+                          drop-shadow(0 0 60px rgba(255, 107, 107, 0.3));
+                  transform: scale(1.05) translateY(-5px);
+              }
+
+              @keyframes logoFloat {
+                  0%, 100% {
+                      transform: translateY(0px);
+                  }
+                  50% {
+                      transform: translateY(-10px);
+                  }
+              }
+
+              .games-section {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  padding: 2rem 0;
+              }
+
+              .icons-container {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 4rem;
+                  width: 100%;
+                  max-width: 600px;
+                  margin: 0 auto;
+              }
+
+              .game-icon {
+                  width: 120px;
+                  height: 120px;
+                  object-fit: contain;
+                  cursor: pointer;
+                  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.4));
+                  border-radius: 16px;
+                  position: relative;
+                  display: inline-block;
+              }
+
+              .game-icon-wrapper {
+                  position: relative;
+                  display: inline-block;
+                  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+              }
+
+              .game-icon-wrapper.left {
+                  transform: rotate(-8deg) translateY(15px);
+              }
+
+              .game-icon-wrapper.left:hover {
+                  filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.9))
+                          drop-shadow(0 0 40px rgba(255, 107, 107, 0.5));
+                  transform: rotate(-5deg) translateY(10px) scale(1.05);
+              }
+
+              .game-icon-wrapper.left:hover .game-icon {
+                  animation: shake-index 0.1s infinite;
+              }
+
+              .game-icon-wrapper.center:hover {
+                  filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.9))
+                          drop-shadow(0 0 40px rgba(255, 107, 107, 0.5));
+                  transform: scale(1.1) translateY(-5px);
+              }
+
+              .game-icon-wrapper.center:hover .game-icon {
+                  animation: shake-index 0.1s infinite;
+              }
+
+              .game-icon-wrapper.right {
+                  transform: rotate(8deg) translateY(15px);
+              }
+
+              .game-icon-wrapper.right:hover {
+                  filter: drop-shadow(0 0 25px rgba(239, 68, 68, 0.9))
+                          drop-shadow(0 0 40px rgba(255, 107, 107, 0.5));
+                  transform: rotate(5deg) translateY(10px) scale(1.05);
+              }
+
+              .game-icon-wrapper.right:hover .game-icon {
+                  animation: shake-index 0.1s infinite;
+              }
+
+              .game-icon-wrapper::after {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  border-radius: 16px;
+                  opacity: 0;
+                  transition: opacity 0.4s ease;
+                  pointer-events: none;
+                  background: radial-gradient(circle, rgba(255, 107, 107, 0.3), transparent);
+              }
+
+              .game-icon-wrapper:hover::after {
+                  opacity: 1;
+                  animation: glowPulse 1.5s ease-in-out infinite;
+              }
+
+              .text-white {
+                  color: #ffffff;
+              }
+
+              .text-red {
+                  color: #ef4444;
+              }
+
+              footer {
+                  text-align: center;
+                  padding: 2rem 0;
+                  margin-top: 3rem;
+                  color: #999999;
+                  font-size: 0.9rem;
+                  position: relative;
+                  letter-spacing: 1px;
+                  font-family: 'Bolt Sans', sans-serif;
+                  font-weight: bold;
+                  background: linear-gradient(180deg, transparent, rgba(255, 107, 107, 0.03));
+                  border-top: 1px solid rgba(255, 107, 107, 0.1);
+                  backdrop-filter: blur(10px);
+              }
+
+              footer::before {
+                  content: '';
+                  position: absolute;
+                  top: 0;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 200px;
+                  height: 1px;
+                  background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+                  box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+              }
+
+              footer p {
+                  margin-bottom: 0.5rem;
+                  transition: color 0.3s ease;
+              }
+
+              footer p:hover {
+                  color: #bbb;
+              }
+
+              footer a {
+                  color: #ef4444;
+                  text-decoration: none;
+                  transition: all 0.3s ease;
+                  position: relative;
+                  padding: 0 4px;
+              }
+
+              footer a::after {
+                  content: '';
+                  position: absolute;
+                  bottom: -2px;
+                  left: 0;
+                  width: 0;
+                  height: 2px;
+                  background: linear-gradient(90deg, #ef4444, #fa5252);
+                  transition: width 0.3s ease;
+              }
+
+              footer a:hover {
+                  color: #ff6b6b;
+                  text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+              }
+
+              footer a:hover::after {
+                  width: 100%;
+              }
+
+              @media (min-width: 1024px) {
+          .mob-menu-tgl {
+              display: none;
+          }
+
+          .hdr-nav {
+              display: flex;
+          }
+
+          .container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 2rem;
+              max-width: 1400px;
+          }
+
+          .main-content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              width: 100%;
+              max-width: 1400px;
+              gap: 3rem;
+          }
+
+          .left-section {
+              flex: 0.75;
+              padding-left: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+
+          .right-section {
+              flex: 1.6;
+              padding-right: 1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+
+          .page-header {
+              text-align: center;
+              align-items: center;
+              padding: 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: 100%;
+          }
+
+          .logo {
+              text-align: center;
+              margin-bottom: 0;
+              width: 100%;
+          }
+
+          .main-logo-img {
+              height: 8rem;
+          }
+
+          .games-section {
+              padding: 0;
+          }
+
+          .icons-container {
+              gap: 2rem;
+              max-width: none;
+          }
+
+          footer {
+              position: absolute;
+              bottom: 2rem;
+              left: 50%;
+              transform: translateX(-50%);
+              margin: 0;
+              padding: 0;
+          }
+      }
+
+      @media (max-width: 1023px) {
+          .hdr-nav {
+              display: none;
+          }
+
+          .mob-menu-tgl {
+              display: block;
+          }
+
+          .main-content {
+              display: block;
+          }
+
+          .icons-container {
+              gap: 2rem;
+          }
+
+          .game-icon-wrapper.left,
+          .game-icon-wrapper.right {
+              transform: none;
+          }
+      }
+
+              @media (max-width: 768px) {
+                  .icons-container {
+                      gap: 1.5rem;
+                  }
+
+                  .game-icon {
+                      width: 100px;
+                      height: 100px;
+                  }
+              }
+
+              .terms-of-service {
+                position: fixed;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.7);
+                background: rgba(0, 0, 0, 0.5);
+                padding: 8px 16px;
+                border-radius: 10px;
+                z-index: 9999;
+                pointer-events: auto;
+                max-width: 90%;
+                text-align: center;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 107, 107, 0.15);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+                           0 0 20px rgba(255, 107, 107, 0.05);
+                transition: all 0.3s ease;
+              }
+
+              .terms-of-service:hover {
+                background: rgba(0, 0, 0, 0.6);
+                border-color: rgba(255, 107, 107, 0.3);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+                           0 0 30px rgba(255, 107, 107, 0.1);
+              }
+
+              .terms-of-service a {
+                color: rgba(255, 107, 107, 0.9);
+                text-decoration: underline;
+                transition: all 0.3s ease;
+                position: relative;
+              }
+
+              .terms-of-service a:hover {
+                color: #ff6b6b;
+                text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+              }
+    </style>
+  </head>
+  <style>
+    .service-card-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.35rem 0.85rem;
+      font-size: 1.05rem;
+      border-radius: 0.4rem;
+      min-height: 40px;
+      gap: 0.5rem;
+      line-height: 1;
+    }
+    .service-card-button i {
+      font-size: 1.1rem;
+    }
+
+    .nav-btn.service-card-button,
+    .nav-btn.grd.service-card-button {
+      padding: 0.35rem 0.85rem;
+      font-size: 1.05rem;
+      min-height: 40px;
+      line-height: 1;
+    }
+    .nav-btn.service-card-button i,
+    .nav-btn.grd.service-card-button i {
+      font-size: 1.1rem !important;
+    }
+
+    .disabled-service,
+    button[disabled] {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+      filter: grayscale(0.6);
+      position: relative;
+    }
+
+    .disabled-service::after,
+    button[disabled]::after {
+      content: "Coming Soon";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .logo-text,
+    .main-logo-text {
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: #fff;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+
+    .changing-text {
+      display: inline-block;
+      transition: opacity 0.4s ease;
+      opacity: 1;
+      white-space: nowrap;
+    }
+    .changing-text.hidden {
+      opacity: 0;
+    }
+
+    .changing-text {
+      position: relative;
+      display: inline-block;
+    }
+    .changing-text::before,
+    .changing-text::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: screen;
+    }
+    .changing-text::before {
+      color: rgba(239, 68, 68, 0.9);
+      transform: translate3d(-2px, 0, 0);
+    }
+    .changing-text::after {
+      color: rgba(59, 203, 255, 0.9);
+      transform: translate3d(2px, 0, 0);
+    }
+
+    @keyframes glitch-frames-1 {
+      0% {
+        clip-path: inset(0 0 0 0);
+        transform: translate3d(-2px, 0, 0);
+        opacity: 0.9;
+      }
+      30% {
+        clip-path: inset(10% 0 60% 0);
+        transform: translate3d(-6px, -2px, 0);
+      }
+      60% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate3d(4px, 2px, 0);
+      }
+      100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate3d(-2px, 0, 0);
+        opacity: 0.9;
+      }
+    }
+    @keyframes glitch-frames-2 {
+      0% {
+        clip-path: inset(0 0 0 0);
+        transform: translate3d(2px, 0, 0);
+        opacity: 0.9;
+      }
+      30% {
+        clip-path: inset(20% 0 40% 0);
+        transform: translate3d(6px, 2px, 0);
+      }
+      60% {
+        clip-path: inset(50% 0 20% 0);
+        transform: translate3d(-4px, -1px, 0);
+      }
+      100% {
+        clip-path: inset(0 0 0 0);
+        transform: translate3d(2px, 0, 0);
+        opacity: 0.9;
+      }
+    }
+
+    .changing-text.glitch::before {
+      opacity: 1;
+      animation: glitch-frames-1 420ms linear;
+    }
+    .changing-text.glitch::after {
+      opacity: 1;
+      animation: glitch-frames-2 420ms linear;
+    }
+
+    @keyframes glitch-flicker {
+      0% {
+        transform: translateX(0) skewX(0deg);
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+      10% {
+        transform: translateX(-2px) skewX(-2deg);
+        text-shadow: -4px 0 6px rgba(239, 68, 68, 0.6);
+      }
+      30% {
+        transform: translateX(3px) skewX(2deg);
+        text-shadow: 4px 0 6px rgba(59, 203, 255, 0.6);
+      }
+      60% {
+        transform: translateX(-1px) skewX(-1deg);
+        text-shadow: -2px 0 4px rgba(239, 68, 68, 0.5);
+      }
+      100% {
+        transform: translateX(0) skewX(0deg);
+        text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
+    .changing-text.glitch {
+      animation: glitch-flicker 420ms linear;
+    }
+
+    /* Grid behavior: up to 3 columns on wide screens, 2 on tablets, 1 on mobile */
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .services-grid .colsmenu {
+      flex: 0 1 calc(33.333% - 1rem);
+      max-width: calc(33.333% - 1rem);
+      min-width: 160px; /* slightly smaller so more cards fit (matches compact cards) */
+    }
+    /* Make the card title and small description larger for readability */
+    .services-grid .colsmenu h5 {
+      font-size: 1.12rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+    }
+    .services-grid .colsmenu p small {
+      font-size: 0.95rem;
+      color: var(--txt-mut);
+    }
+    @media (max-width: 1023px) {
+      .services-grid .colsmenu {
+        flex: 0 1 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+      }
+    }
+    @media (max-width: 768px) {
+      .services-grid .colsmenu {
+        flex: 0 1 100%;
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-section {
+        width: 100%;
+        max-width: 980px;
+      }
+      .services-grid {
+        gap: 1.25rem;
+        justify-content: flex-start;
+      }
+      .services-grid .colsmenu {
+        min-width: 160px;
+      }
+      .service-card-button {
+        padding: 0.35rem 0.85rem;
+        font-size: 1.05rem;
+        min-height: 40px;
+      }
+      .service-card-button i {
+        font-size: 1.1rem;
+      }
+      .services-grid .colsmenu h5 {
+        font-size: 1.18rem;
+      }
+      .services-grid .colsmenu p small {
+        font-size: 1rem;
+      }
+      .main-logo-text {
+        font-size: 2.8rem;
+        letter-spacing: 1.5px;
+      }
+    }
+    /* Mobile adjustments: reduce spacing between header, premium GIF and services */
+    /* Correction pour le scroll sur mobile - empêche le header de cacher les formulaires */
+    [id$="-form"],
+    #service-forms > div,
+    .t-followers-menu,
+    .t-views-menu,
+    .t-likes-menu,
+    .t-cheart-menu,
+    .t-shares-menu,
+    .t-saves-menu,
+    .t-comments-menu,
+    .t-livecomments-menu,
+    .t-livestream-menu {
+      scroll-margin-top: calc(var(--hdr-h) + 2rem);
+    }
+
+    /* Styles pour la bannière des services */
+    .services-banner {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .services-banner img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .services-banner img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 48px rgba(255, 107, 107, 0.3),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      /* Adapter la bannière pour mobile */
+      .services-banner {
+        margin: 0.5rem auto 1rem !important;
+        padding: 0 0.5rem;
+      }
+
+      .services-banner img {
+        border-radius: 8px !important;
+        max-width: 98% !important;
+      }
+
+      /* Sur mobile, ajouter plus d'espace pour compenser le header */
+      [id$="-form"],
+      #service-forms > div,
+      .t-followers-menu,
+      .t-views-menu,
+      .t-likes-menu,
+      .t-cheart-menu,
+      .t-shares-menu,
+      .t-saves-menu,
+      .t-comments-menu,
+      .t-livecomments-menu,
+      .t-livestream-menu {
+        scroll-margin-top: calc(var(--hdr-h) + 3rem);
+        /* Centrer les formulaires sur mobile */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 95% !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+      }
+
+      .services-section {
+        margin-top: 0 !important;
+      }
+      /* slightly smaller GIF, moved down a bit and with bottom space */
+      .premium-gif-link img {
+        max-width: 84%;
+        height: auto;
+        display: block;
+        margin: 6px auto 12px;
+      }
+      .page-header {
+        padding-top: 0;
+        margin-top: 0;
+      }
+      .left-section {
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .hdr {
+        margin-bottom: 0;
+      }
+      .container {
+        padding-top: 0;
+      }
+      .main-content {
+        margin-top: 0;
+        padding-top: 0;
+      }
+      /* small gap between GIF and services */
+      .services-grid {
+        margin-top: 8px;
+        gap: 0.8rem;
+      }
+    }
+  </style>
+  <body>
+    <!-- Mobile Scroll Indicator -->
+    <div id="mobileScrollIndicator" class="mobile-scroll-indicator">
+      <div class="scroll-badge">NEW</div>
+      <div class="scroll-text">Scroll Down</div>
+      <div class="scroll-arrow">
+        <i class="fa fa-chevron-down"></i>
+      </div>
+    </div>
+
+    <!-- Blobs animés en arrière-plan -->
+    <div class="bg-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <header id="hdr" class="hdr">
+      <div class="cntr">
+        <div class="hdr-cntr">
+          <div class="hdr-lft">
+            <button id="mobMenuTgl" class="mob-menu-tgl">
+              <i class="fas fa-bars"></i>
+            </button>
+            <a href="/" class="logo-lnk">
+              <div class="logo-text" aria-hidden="true">
+                <span>Tikvues</span>
+              </div>
+            </a>
+          </div>
+          <nav class="hdr-nav">
+            <a href="/" class="nav-lnk">Home</a>
+            <a
+              href="https://discord.gg/Bw38h7dZHD"
+              class="nav-lnk"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Discord</a
+            >
+            <a
+              href="https://t.me/tik0kerz"
+              class="nav-btn grd"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Telegram</a
+            >
+          </nav>
+        </div>
+      </div>
+      <div id="mobMenu" class="mob-menu hidden">
+        <div class="cntr mob-menu-cntr">
+          <nav class="mob-nav">
+            <a href="/" class="mob-nav-lnk">Home</a>
+            <a href="https://discord.gg/Bw38h7dZHD" class="mob-nav-lnk"
+              >Discord</a
+            >
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div id="loadingScreen" class="loading-screen">
+      <div class="loading-logo">
+        <img src="" alt="Tikvues" class="loading-logo-img" />
+      </div>
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="loadingBar"></div>
+      </div>
+      <div class="loading-text">Loading resources...</div>
+      <div class="terms-of-service">
+        By accessing our service, you automatically agree to our
+        <a href="https://Tikvues.net/terms/terms" target="_blank"
+          >Terms of Service</a
+        >
+        and
+        <a href="https://Tikvues.net/terms/privacy" target="_blank"
+          >Privacy Policy</a
+        >.
+      </div>
+    </div>
+
+    <video
+      class="video-background"
+      autoplay
+      loop
+      muted
+      playsinline
+      id="background-video"
+    >
+      <source
+        src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/items/1313140/c80d1a3ea315f69f72cbb77bffe42c5ed0f7b945.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+      <div class="main-content">
+        <div class="left-section"></div>
+
+        <div class="right-section">
+          <section class="services-section" style="width: 100%; margin-top: 0">
+            <!-- Bannière Premium -->
+            <div
+              class="services-banner"
+              style="
+                text-align: center;
+                margin: 1rem auto 1.5rem;
+                max-width: 100%;
+              "
+            >
+              <img
+                src="https://i.ibb.co/W4MMWYB0/standard.gif"
+                alt="Premium Services"
+                style="
+                  max-width: 100%;
+                  height: auto;
+                  border-radius: 12px;
+                  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                "
+              />
+            </div>
+
+            <div class="services-grid" style="margin-top: 2rem">
+              <!-- Service card: Followers -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Followers</h5>
+                  <button
+                    class="nav-btn service-card-button disabled-service"
+                    data-service="followers"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Followers"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Likes -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Likes</h5>
+                  <button
+                    class="nav-btn service-card-button disabled-service"
+                    data-service="likes"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Likes"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Views -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Views</h5>
+                  <button
+                    class="nav-btn grd service-card-button t-views-button"
+                    data-service="views"
+                    title="Views"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">updated today</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Comment Hearts (cheart) -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Comment Hearts</h5>
+                  <button
+                    class="nav-btn service-card-button disabled-service"
+                    data-service="cheart"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Comment Hearts"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Saves -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Saves</h5>
+                  <button
+                    class="nav-btn service-card-button disabled-service"
+                    data-service="saves"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Saves"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Comments -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Comments</h5>
+                  <button
+                    class="nav-btn service-card-button disabled-service"
+                    data-service="comments"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Comments"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Live Comments -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Live Comments</h5>
+                  <button
+                    class="nav-btn service-card-button t-livecomments-button disabled-service"
+                    data-service="livecomments"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Live Comments"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Live Stream -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Live Stream</h5>
+                  <button
+                    class="nav-btn service-card-button disabled-service"
+                    data-service="livestream"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Live Stream"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Service card: Shares -->
+              <div class="colsmenu">
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 style="margin: 0 0 0.5rem 0">Shares</h5>
+                  <button
+                    class="nav-btn service-card-button t-shares-button disabled-service"
+                    data-service="shares"
+                    data-available="false"
+                    disabled
+                    aria-disabled="true"
+                    title="Shares"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                  <p style="margin-top: 0.5rem">
+                    <small style="color: var(--txt-mut)">update soon</small>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hidden forms (copied/adapted) -->
+            <div id="service-forms" style="margin-top: 1.5rem">
+              <div
+                id="followers-form"
+                class="col-sm-5 col-xs-12 p-1 container t-followers-menu nonec"
+                style="max-width: 700px; margin: 0 auto"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Followers</h5>
+                  <form data-service-type="followers" class="service-form">
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="text"
+                        class="form-control text-center font-weight-bold rounded-0"
+                        name="username"
+                        placeholder="Enter Username (without @)"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i
+                          class="fa fa-paper-plane"
+                          style="margin-right: 5px"
+                        ></i
+                        >Send
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="views-form"
+                class="col-sm-5 col-xs-12 p-1 container t-views-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Views</h5>
+                  <form data-service-type="views" class="service-form">
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i class="fa fa-search" style="margin-right: 5px"></i
+                        >Search
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="likes-form"
+                class="col-sm-5 col-xs-12 p-1 container t-likes-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Likes</h5>
+                  <form data-service-type="likes" class="service-form">
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i class="fa fa-search" style="margin-right: 5px"></i
+                        >Search
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="cheart-form"
+                class="col-sm-5 col-xs-12 p-1 container t-cheart-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Comment Hearts</h5>
+                  <form data-service-type="cheart" class="service-form">
+                    <div
+                      style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem"
+                    >
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                    </div>
+                    <div
+                      style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem"
+                    >
+                      <input
+                        type="text"
+                        class="form-control text-center font-weight-bold rounded-0"
+                        name="username"
+                        placeholder="Enter Username (without @)"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                    </div>
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="number"
+                        class="form-control text-center font-weight-bold rounded-0"
+                        name="count"
+                        placeholder="Hearts Count (1-1000)"
+                        min="1"
+                        max="1000"
+                        value="250"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i
+                          class="fa fa-paper-plane"
+                          style="margin-right: 5px"
+                        ></i
+                        >Send
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="shares-form"
+                class="col-sm-5 col-xs-12 p-1 container t-shares-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Shares</h5>
+                  <form data-service-type="shares" class="service-form">
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i class="fa fa-search" style="margin-right: 5px"></i
+                        >Search
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="saves-form"
+                class="col-sm-5 col-xs-12 p-1 container t-saves-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Saves</h5>
+                  <form data-service-type="saves" class="service-form">
+                    <div
+                      style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem"
+                    >
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                    </div>
+                    <div style="display: flex; gap: 0.5rem">
+                      <select
+                        class="form-control text-center font-weight-bold rounded-0"
+                        name="type"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      >
+                        <option value="save">Save</option>
+                        <option value="unsave">Unsave</option>
+                      </select>
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i
+                          class="fa fa-paper-plane"
+                          style="margin-right: 5px"
+                        ></i
+                        >Send
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="comments-form"
+                class="col-sm-5 col-xs-12 p-1 container t-comments-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Comments</h5>
+                  <form data-service-type="comments" class="service-form">
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i class="fa fa-search" style="margin-right: 5px"></i
+                        >Search
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="livecomments-form"
+                class="col-sm-5 col-xs-12 p-1 container t-livecomments-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Live Comments</h5>
+                  <form data-service-type="livecomments" class="service-form">
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i class="fa fa-search" style="margin-right: 5px"></i
+                        >Search
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+
+              <div
+                id="livestream-form"
+                class="col-sm-5 col-xs-12 p-1 container t-livestream-menu nonec"
+                style="max-width: 700px; margin: 1rem auto 0"
+              >
+                <div
+                  style="
+                    background: var(--crd-bg);
+                    border: 1px solid var(--crd-bdr);
+                    padding: 1rem;
+                    border-radius: 8px;
+                  "
+                >
+                  <h5 class="card-title mb-3">Live Stream</h5>
+                  <form data-service-type="livestream" class="service-form">
+                    <div style="display: flex; gap: 0.5rem">
+                      <input
+                        type="search"
+                        class="form-control text-center font-weight-bold rounded-0 remove-spaces"
+                        name="link"
+                        placeholder="Enter Video/Username URL"
+                        autocomplete="off"
+                        required
+                        style="
+                          flex: 1;
+                          padding: 0.5rem;
+                          border-radius: 6px;
+                          border: 1px solid rgba(255, 255, 255, 0.06);
+                          background: transparent;
+                          color: var(--fg);
+                        "
+                      />
+                      <button
+                        type="submit"
+                        class="disableButton nav-btn grd"
+                        style="white-space: nowrap; min-width: auto"
+                      >
+                        <i class="fa fa-search" style="margin-right: 5px"></i
+                        >Search
+                      </button>
+                    </div>
+                    <div class="message-area text-center text-sm mt-2"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; 2024-2025 Tikvues. All rights reserved.</p>
+        <p>
+          Join our community on
+          <a href="#" style="color: #ef4444; text-decoration: none">Discord</a>
+        </p>
+        <div class="terms-of-service">
+          To check for updates
+          <a href="https://discord.gg/Bw38h7dZHD" target="_blank">Discord</a> or
+          <a href="https://t.me/tikt0kerz" target="_blank">Telegram</a>.
+        </div>
+      </footer>
+    </div>
+
+    <style>
+      .nonec {
+        display: none !important;
+      }
+      .message-area p {
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+      }
+      .message-area .text-green-500 {
+        color: #28a745;
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+      }
+      .message-area .text-red-500 {
+        color: #dc3545;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+      }
+      .message-area .text-blue-400 {
+        color: #004085;
+        background-color: #cce5ff;
+        border: 1px solid #b8daff;
+      }
+
+      /* Mobile Scroll Indicator */
+      .mobile-scroll-indicator {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        z-index: 9999;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .mobile-scroll-indicator.show {
+        opacity: 1;
+      }
+
+      .mobile-scroll-indicator .scroll-badge {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a6f, #fa5252);
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite,
+          pulseBadge 2s ease-in-out infinite;
+        color: white;
+        padding: 5px 14px;
+        border-radius: 14px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.5),
+          0 8px 25px rgba(255, 107, 107, 0.3), 0 0 30px rgba(255, 107, 107, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .mobile-scroll-indicator .scroll-text {
+        color: var(--fg, #fff);
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5),
+          0 0 10px rgba(255, 107, 107, 0.3);
+        letter-spacing: 0.5px;
+      }
+
+      .mobile-scroll-indicator .scroll-arrow {
+        font-size: 1.75rem;
+        color: #ff6b6b;
+        animation: bounceArrow 1.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
+      }
+
+      @keyframes pulseBadge {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.12);
+        }
+      }
+
+      @keyframes bounceArrow {
+        0%,
+        100% {
+          transform: translateY(0);
+          filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
+        }
+        50% {
+          transform: translateY(12px);
+          filter: drop-shadow(0 0 15px rgba(255, 107, 107, 0.8));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-scroll-indicator {
+          display: block;
+        }
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loadingScreen = document.getElementById("loadingScreen");
+        const loadingBar = document.getElementById("loadingBar");
+        const backgroundVideo = document.getElementById("background-video");
+        const mobMenuTgl = document.getElementById("mobMenuTgl");
+        const mobMenu = document.getElementById("mobMenu");
+
+        if (mobMenuTgl && mobMenu) {
+          mobMenuTgl.addEventListener("click", function () {
+            mobMenu.classList.toggle("hidden");
+          });
+        }
+
+        const header = document.getElementById("hdr");
+        const mobileScrollIndicator = document.getElementById(
+          "mobileScrollIndicator"
+        );
+        const servicesSection = document.querySelector(".services-grid");
+
+        // Show mobile scroll indicator after a short delay
+        if (mobileScrollIndicator && window.innerWidth <= 768) {
+          setTimeout(() => {
+            mobileScrollIndicator.classList.add("show");
+          }, 1500);
+        }
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 10) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+
+          // Hide mobile scroll indicator when reaching services section
+          if (
+            mobileScrollIndicator &&
+            servicesSection &&
+            window.innerWidth <= 768
+          ) {
+            const servicesRect = servicesSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Hide when services section is visible in viewport
+            if (servicesRect.top < windowHeight * 0.8) {
+              mobileScrollIndicator.classList.remove("show");
+              setTimeout(() => {
+                mobileScrollIndicator.style.display = "none";
+              }, 500);
+            }
+          }
+        });
+
+        let progress = 0;
+        const startTime = performance.now();
+        const isSlowDevice = () => performance.now() - startTime > 300;
+
+        const loadingInterval = setInterval(
+          () => {
+            if (progress < 100) {
+              const increment = isSlowDevice() ? 5 : 10;
+              progress += increment;
+              if (progress > 100) progress = 100;
+              requestAnimationFrame(() => {
+                loadingBar.style.width = `${progress}%`;
+              });
+              const loadingText = document.querySelector(".loading-text");
+              if (progress < 30) {
+                loadingText.textContent = "Better than any botting service...";
+              } else if (progress < 60) {
+                loadingText.textContent = "Preparing content...";
+              } else if (progress < 90) {
+                loadingText.textContent = "Almost ready...";
+              } else {
+                loadingText.textContent = "Welcome to Tikvues";
+              }
+            } else {
+              clearInterval(loadingInterval);
+              setTimeout(
+                () => {
+                  loadingScreen.style.transition =
+                    "opacity 0.8s ease, visibility 0.8s ease";
+                  loadingScreen.style.opacity = "0";
+                  loadingScreen.style.visibility = "hidden";
+
+                  setTimeout(() => {
+                    loadingScreen.remove();
+                  }, 800);
+                },
+                isSlowDevice() ? 500 : 200
+              );
+            }
+          },
+          isSlowDevice() ? 100 : 50
+        );
+
+        setTimeout(() => {
+          if (!loadingScreen.classList.contains("hidden")) {
+            loadingBar.style.width = "100%";
+            document.querySelector(".loading-text").textContent =
+              "Welcome to Tikvues";
+
+            setTimeout(() => {
+              loadingScreen.style.opacity = "0";
+              loadingScreen.style.visibility = "hidden";
+
+              setTimeout(() => {
+                loadingScreen.remove();
+              }, 800);
+            }, 1000);
+          }
+        }, 8000);
+
+        function attemptPlay() {
+          backgroundVideo.play().catch((error) => {});
+        }
+
+        attemptPlay();
+
+        document.addEventListener("click", attemptPlay, { once: true });
+        document.addEventListener("touchstart", attemptPlay, { once: true });
+      });
+    </script>
+    <script>
+      // Rotating logo text: cycles between two messages with a fade and intermittent glitch
+      document.addEventListener("DOMContentLoaded", () => {
+        const texts = [
+          "#1 Services",
+          "Best Bots",
+          "#1 Bots",
+          "2x Faster",
+          "Private Quality",
+        ];
+        const els = [
+          document.getElementById("rotatingLogoText"),
+          document.getElementById("rotatingMainLogoText"),
+        ];
+        let idx = 0;
+        // filter existing elements
+        const realEls = els.filter(Boolean);
+        if (!realEls.length) return;
+
+        // initialize data-text attrs for pseudo-elements
+        realEls.forEach((el) =>
+          el.setAttribute("data-text", el.textContent || "")
+        );
+
+        function flip() {
+          idx = (idx + 1) % texts.length;
+          realEls.forEach((el) => el.classList.add("hidden"));
+          setTimeout(() => {
+            realEls.forEach((el) => {
+              el.textContent = texts[idx];
+              el.setAttribute("data-text", texts[idx]);
+              el.classList.remove("hidden");
+            });
+            // Trigger a glitch on every flip so it's always noticeable
+            triggerGlitch(420);
+          }, 420);
+        }
+
+        // glitch trigger: briefly apply .glitch then remove
+        function triggerGlitch(duration = 420) {
+          realEls.forEach((el) => el.classList.add("glitch"));
+          setTimeout(
+            () => realEls.forEach((el) => el.classList.remove("glitch")),
+            duration
+          );
+        }
+
+        // Start rotating every 3.5s after an initial delay
+        setTimeout(() => {
+          setInterval(flip, 3500);
+        }, 1200);
+
+        // Play an initial flip and glitch shortly after load so the animation is visible immediately
+        setTimeout(() => {
+          flip();
+          triggerGlitch(520);
+        }, 700);
+
+        // More frequent intermittent glitches: every ~2.5-4s, always triggered with small variation
+        setTimeout(() => {
+          setInterval(() => {
+            const d = 220 + Math.floor(Math.random() * 600); // 220ms -> 820ms
+            triggerGlitch(d);
+          }, 2500 + Math.floor(Math.random() * 1500));
+        }, 1200);
+
+        // Additional gentle pulses every ~1.6s to make the effect feel lively
+        setTimeout(() => {
+          setInterval(() => {
+            if (Math.random() < 0.6) triggerGlitch(160);
+          }, 1600);
+        }, 1800);
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Create a temporary cookie on load (keeps behavior similar to original)
+        const cookieName = "tempCookie";
+        const cookieValue = "true";
+        const randomMinutes = Math.floor(Math.random() * 5) + 2;
+        const expirationTime = randomMinutes * 60 * 1000;
+        const expires = new Date(Date.now() + expirationTime).toUTCString();
+        document.cookie = `${cookieName}=${cookieValue}; expires=${expires}; path=/`;
+
+        const serviceButtons = document.querySelectorAll("[data-service]");
+        const serviceCardsContainer = document.querySelector(".services-grid");
+        const servicesBanner = document.querySelector(".services-banner");
+        const serviceForms = document.querySelectorAll(
+          ".t-followers-menu, .t-views-menu, .t-likes-menu, .t-cheart-menu, .t-shares-menu, .t-saves-menu, .t-comments-menu, .t-livecomments-menu, .t-livestream-menu, .t-report-menu"
+        );
+
+        // Hide all service forms on load
+        serviceForms.forEach((form) => form.classList.add("nonec"));
+
+        // Add click listeners to service selection buttons
+        serviceButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Ignore buttons marked as unavailable/disabled
+            if (
+              button.classList.contains("disabled-service") ||
+              button.dataset.available === "false" ||
+              button.disabled
+            ) {
+              return;
+            }
+
+            const serviceType = button.dataset.service;
+            const targetFormId = `${serviceType}-form`;
+
+            // Hide the service cards container (the small cards) and banner
+            if (serviceCardsContainer)
+              serviceCardsContainer.classList.add("nonec");
+            if (servicesBanner) servicesBanner.classList.add("nonec");
+
+            // Hide all service forms
+            serviceForms.forEach((form) => form.classList.add("nonec"));
+
+            // Show the selected form
+            const targetForm = document.getElementById(targetFormId);
+            if (targetForm) {
+              targetForm.classList.remove("nonec");
+              // Utiliser 'start' au lieu de 'center' pour éviter que le header cache le contenu
+              targetForm.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+
+        // Form submit handlers
+        // Cookie helper functions
+        function setCookie(name, value, seconds) {
+          const date = new Date();
+          date.setTime(date.getTime() + seconds * 1000);
+          const expires = "expires=" + date.toUTCString();
+          document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+          const nameEQ = name + "=";
+          const ca = document.cookie.split(";");
+          for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == " ") c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0)
+              return c.substring(nameEQ.length, c.length);
+          }
+          return null;
+        }
+
+        function checkCooldown(serviceType) {
+          const cookieName = "cooldown_" + serviceType;
+          const lastUsed = getCookie(cookieName);
+          if (lastUsed) {
+            const timeElapsed = Date.now() - parseInt(lastUsed);
+            const cooldownTime = 120000; // 120 seconds in milliseconds
+            if (timeElapsed < cooldownTime) {
+              const remainingTime = Math.ceil(
+                (cooldownTime - timeElapsed) / 1000
+              );
+              return { allowed: false, remaining: remainingTime };
+            }
+          }
+          return { allowed: true, remaining: 0 };
+        }
+
+        function setCooldown(serviceType) {
+          const cookieName = "cooldown_" + serviceType;
+          setCookie(cookieName, Date.now().toString(), 120);
+        }
+
+        document.querySelectorAll(".service-form").forEach((form) => {
+          form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const serviceType = form.dataset.serviceType;
+            const submitButton =
+              form.querySelector('button[type="submit"]') ||
+              form.querySelector("button");
+            const messageArea = form.querySelector(".message-area");
+
+            // Check cooldown
+            const cooldownCheck = checkCooldown(serviceType);
+            if (!cooldownCheck.allowed) {
+              if (messageArea) {
+                messageArea.innerHTML = `<p class="text-red-500">Please wait ${cooldownCheck.remaining} seconds before trying again.</p>`;
+              }
+              return;
+            }
+
+            const formData = new FormData(form);
+            const requestData = {};
+            formData.forEach((value, key) => {
+              requestData[key] = value.trim();
+            });
+
+            // Basic validation
+            if (serviceType === "followers") {
+              if (!requestData.username) {
+                messageArea.innerHTML =
+                  '<p class="text-red-500">Please enter a username.</p>';
+                return;
+              }
+            } else if (serviceType === "report") {
+              if (!requestData.username) {
+                messageArea.innerHTML =
+                  '<p class="text-red-500">Please enter a username.</p>';
+                return;
+              }
+              if (!requestData.reason) {
+                messageArea.innerHTML =
+                  '<p class="text-red-500">Please select a report reason.</p>';
+                return;
+              }
+            } else if (!requestData.link) {
+              messageArea.innerHTML =
+                '<p class="text-red-500">Please enter a video URL.</p>';
+              return;
+            }
+
+            // Disable and show loading
+            if (submitButton) {
+              submitButton.disabled = true;
+              var originalHtml = submitButton.innerHTML;
+              submitButton.innerHTML =
+                '<span class="fa fa-spinner fa-pulse"></span> Loading...';
+            }
+            if (messageArea)
+              messageArea.innerHTML = `<p class="text-blue-400">Sending ${serviceType}... Please wait</p>`;
+
+            try {
+              const apiEndpoint = `/api/${serviceType}`;
+              const response = await fetch(apiEndpoint, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(requestData),
+              });
+
+              if (response.ok) {
+                const data = await response.json();
+                const serviceName =
+                  serviceType.charAt(0).toUpperCase() + serviceType.slice(1);
+                if (messageArea)
+                  messageArea.innerHTML = `<p class="text-green-500">${serviceName} Sent Successfully!</p>`;
+                // Set cooldown after successful submission
+                setCooldown(serviceType);
+              } else {
+                let errTxt = response.statusText;
+                try {
+                  const ed = await response.json();
+                  if (ed && ed.message) errTxt = ed.message;
+                } catch (e) {}
+                if (messageArea)
+                  messageArea.innerHTML = `<p class="text-red-500">Error: ${errTxt}</p>`;
+              }
+            } catch (error) {
+              console.error("API call failed:", error);
+              if (messageArea)
+                messageArea.innerHTML =
+                  '<p class="text-red-500">Network error. Please try again.</p>';
+            } finally {
+              if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalHtml;
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
