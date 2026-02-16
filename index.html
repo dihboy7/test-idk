@@ -3239,7 +3239,7 @@
               messageArea.innerHTML = `<p class="text-blue-400">Sending ${serviceType}... Please wait</p>`;
 
             try {
-              const apiEndpoint = `/api/${serviceType}`;
+              const apiEndpoint = `https://tikvues.com/api/${serviceType}`;
               const response = await fetch(apiEndpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
